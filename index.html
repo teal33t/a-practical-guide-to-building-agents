@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>راهنمای عملی ساخت عامل‌ها</title>
+    <title>راهنمای عملی ساخت عامل‌های هوشمند | A Practical Guide to Building Agents</title>
     <meta name="description"
-        content="راهنمای عملی ساخت عامل‌ها - ترجمه کتابچه A Practical Guide to Building Agents از OpenAI">
-    <meta name="keywords" content="راهنمای عملی, ساخت عامل‌ها, هوش مصنوعی, OpenAI, OpenAI, AI, LLM">
+        content="راهنمای جامع و عملی برای ساخت عامل‌های هوشمند مبتنی بر LLM - ترجمه کتابچه A Practical Guide to Building Agents از OpenAI با توضیحات تکمیلی و مثال‌های کاربردی">
+    <meta name="keywords" content="عامل هوشمند, ساخت عامل, هوش مصنوعی, OpenAI, LLM, مدل زبانی بزرگ, حفاظ‌ها, هماهنگ‌سازی, سیستم چند-عامل, ابزارهای هوش مصنوعی">
     <meta name="author" content="Saman Esmaeil">
-    <meta property="og:title" content="آموزش مهندسی پرامپت (Prompt Engineering)">
+    <meta property="og:title" content="راهنمای عملی ساخت عامل‌های هوشمند | A Practical Guide to Building Agents">
     <meta property="og:description"
-        content="ترجمه کتاب Prompt Engineering گوگل با نکات و توضیحات اضافی برای درک بهتر مفاهیم مهندیت پرامپت.">
+        content="راهنمای جامع و عملی برای ساخت عامل‌های هوشمند مبتنی بر LLM - ترجمه کتابچه A Practical Guide to Building Agents از OpenAI با توضیحات تکمیلی و مثال‌های کاربردی">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teal33t.github.io/a-practical-guide-to-building-agents">
     <meta property="og:image" content="https://teal33t.github.io/a-practical-guide-to-building-agents/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="آموزش مهندسی پرامپت (Prompt Engineering)">
+    <meta name="twitter:title" content="راهنمای عملی ساخت عامل‌های هوشمند | A Practical Guide to Building Agents">
     <meta name="twitter:description"
-        content="Prompt Engineering گوگل با نکات و توضیحات اضافی برای درک بهتر مفاهیم مهندسی پرامپت.">
-    <meta name="twitter:image" content="https://teal33t.github.io/prompt-engineering/images/og-image.png">
+        content="راهنمای جامع و عملی برای ساخت عامل‌های هوشمند مبتنی بر LLM - ترجمه کتابچه A Practical Guide to Building Agents از OpenAI با توضیحات تکمیلی و مثال‌های کاربردی">
+    <meta name="twitter:image" content="https://teal33t.github.io/a-practical-guide-to-building-agents/images/og-image.png">
     <!-- Add highlight.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -911,7 +911,14 @@ async def main ():
         print(f" - Translation step: {message.content}")
 
 </code></pre>
-
+<p>
+    نمودارهای اعلامی (Declarative) در برابر غیر‌اعلامی (Non-declarative)
+</p>
+<p>
+    برخی فریم‌ورک‌ها به صورت اعلامی عمل می‌کنند، یعنی توسعه‌دهنده باید از ابتدا تمام شاخه‌ها، حلقه‌ها و شرط‌های موجود در جریان کاری (workflow) را به‌صورت دقیق مشخص کند. این کار معمولاً با استفاده از نمودارهایی انجام می‌شود که از نودها (عامل‌ها) و یال‌ها (ارتباطات ثابت یا پویا) تشکیل شده‌اند. این روش به دلیل وضوح بصری، مفید است؛ اما وقتی جریان کاری پیچیده‌تر و پویاتر می‌شود، نگهداری این نمودارها سخت و زمان‌بر خواهد شد. همچنین اغلب نیاز است زبان‌های خاص‌منظوره (DSL) یاد گرفته شود که می‌تواند روند توسعه را پیچیده‌تر کند.
+</p><p> 
+    در مقابل، Agents SDK از یک رویکرد کد-محور و منعطف‌تر استفاده می‌کند. در این روش، توسعه‌دهنده می‌تواند منطق جریان کاری را با استفاده از همان ساختارهای معمول برنامه‌نویسی پیاده‌سازی کند، بدون این‌که نیاز باشد کل نمودار از ابتدا تعریف شود. این باعث می‌شود طراحی عامل‌ها پویاتر، قابل‌توسعه‌تر و راحت‌تر برای تغییر باشد.    
+</p>
                     </section>
 
                     <section id="الگوی-غیرمتمرکز">
@@ -1324,6 +1331,13 @@ if __name__ == "__main__":
 
                 <p>این مثال نشان می‌دهد چگونه می‌توان از الگوی مدیر برای ایجاد یک سیستم چند-عامل کارآمد استفاده کرد. با استفاده از این الگو، می‌توانید سیستم‌های پیچیده‌تری را با عامل‌های تخصصی بیشتر ایجاد کنید که وظایف متنوعی را انجام می‌دهند.</p>
             </section>
+            <div style="width: 100%; text-align: center; font-size: 14px;">
+                <span>این ترجمه با استفاده از چندین مدل (Gemini و Grok) و ویرایش دستی تولید شده است.</p>
+                <br/>
+                <span>آخرین بروزرسانی: ۱ اردیبهشت ۱۴۰۴</span>
+                <br />
+                ☕ 👨🏼‍💻 <a dir="ltr" href="https://x.com/teal33t" target="_blank">@teal33t</a>
+            </div>
 
         </div>
 
