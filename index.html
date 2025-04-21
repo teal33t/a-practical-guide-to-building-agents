@@ -13,13 +13,18 @@
     <meta property="og:description"
         content="ترجمه کتاب Prompt Engineering گوگل با نکات و توضیحات اضافی برای درک بهتر مفاهیم مهندیت پرامپت.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://teal33t.github.io/prompt-engineering">
-    <meta property="og:image" content="https://teal33t.github.io/prompt-engineering/images/og-image.png">
+    <meta property="og:url" content="https://teal33t.github.io/a-practical-guide-to-building-agents">
+    <meta property="og:image" content="https://teal33t.github.io/a-practical-guide-to-building-agents/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="آموزش مهندسی پرامپت (Prompt Engineering)">
     <meta name="twitter:description"
         content="Prompt Engineering گوگل با نکات و توضیحات اضافی برای درک بهتر مفاهیم مهندسی پرامپت.">
     <meta name="twitter:image" content="https://teal33t.github.io/prompt-engineering/images/og-image.png">
+    <!-- Add highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <!-- Add Python language support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&family=Vazirmatn:wght@100..900&display=swap');
     </style>
@@ -299,12 +304,28 @@
 
         code {
             direction: ltr;
-            color: black;
             text-align: left;
             padding: 1rem;
-            text-shadow: 0px 0.5px 0px #24292f;
             border-radius: 0;
             display: block;
+        }
+        
+        /* Specific styling for Python code */
+        code.language-python {
+            font-family: 'Courier New', monospace;
+            background-color: #282c34;
+            color: #abb2bf;
+            text-shadow: none;
+        }
+        
+        /* Inline code styling */
+        p code, li code, td code {
+            display: inline;
+            padding: 0.2rem 0.4rem;
+            background-color: var(--code-bg);
+            border-radius: 3px;
+            color: #333;
+            text-shadow: none;
         }
 
         table {
@@ -389,7 +410,7 @@
             </a>
 
             <!-- GitHub Star Button -->
-            <iframe src="https://ghbtns.com/github-btn.html?user=teal33t&repo=prompt-engineering&type=star&count=true"
+            <iframe src="https://ghbtns.com/github-btn.html?user=teal33t&repo=a-practical-guide-to-building-agents&type=star&count=true"
                 frameborder="0" scrolling="0" width="100" height="20" title="GitHub"></iframe>
         </div>
     </header>
@@ -482,15 +503,6 @@
                     طرف کاربر عمل کند:</p>
                 <table class="responsive-table"
                     style="width:100%; overflow-x:auto; display:block; border-collapse:collapse;">
-                    <thead>
-                        <tr>
-                            <th style="border:1px solid var(--border-color); padding:0.75rem; text-align:right;">مرحله
-                            </th>
-                            <th style="border:1px solid var(--border-color); padding:0.75rem; text-align:right;">توضیحات
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
                         <tr>
                             <td style="border:1px solid var(--border-color); padding:0.75rem; text-align:right;">۱</td>
                             <td style="border:1px solid var(--border-color); padding:0.75rem; text-align:right;">از یک
@@ -505,7 +517,6 @@
                                 برای انجام اقدامات—و به طور پویا ابزارهای مناسب را بسته به وضعیت فعلی جریان کاری انتخاب
                                 می‌کند، همیشه در چارچوب حفاظ‌های تعریف شده عمل می‌کند.</td>
                         </tr>
-                    </tbody>
                 </table>
             </section>
 
@@ -1204,6 +1215,20 @@ customer_support_agent = Agent(
         </div>
 
     </div>
+    
+    <!-- Initialize syntax highlighting -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Add language class to code blocks
+            document.querySelectorAll('pre code').forEach((block) => {
+                // Default to python if no language is specified
+                if (!block.classList.contains('language-python')) {
+                    block.classList.add('language-python');
+                }
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
 </body>
 
 </html>
